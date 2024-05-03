@@ -1,0 +1,15 @@
+../Core/Src/ARGB.c:124:6:ARGB_Init	2
+../Core/Src/ARGB.c:171:6:ARGB_Clear	1
+../Core/Src/ARGB.c:182:6:ARGB_SetBrightness	1
+../Core/Src/ARGB.c:193:6:ARGB_SetRGB	2
+../Core/Src/ARGB.c:236:6:ARGB_SetHSV	1
+../Core/Src/ARGB.c:247:6:ARGB_SetWhite	1
+../Core/Src/ARGB.c:261:6:ARGB_FillRGB	2
+../Core/Src/ARGB.c:272:6:ARGB_FillHSV	1
+../Core/Src/ARGB.c:282:6:ARGB_FillWhite	2
+../Core/Src/ARGB.c:292:12:ARGB_Ready	1
+../Core/Src/ARGB.c:301:12:ARGB_Show	18
+../Core/Src/ARGB.c:382:20:scale8	1
+../Core/Src/ARGB.c:395:13:HSV2RGB	7
+../Core/Src/ARGB.c:436:13:ARGB_TIM_DMADelayPulseCplt	26
+../Core/Src/ARGB.c:520:13:ARGB_TIM_DMADelayPulseHalfCplt	10
