@@ -1,6 +1,0 @@
-../Core/Inc/sht3x.c:21:16:calculate_crc	4
-../Core/Inc/sht3x.c:37:13:sht3x_send_command	2
-../Core/Inc/sht3x.c:49:17:uint8_to_uint16	1
-../Core/Inc/sht3x.c:54:6:sht3x_init	3
-../Core/Inc/sht3x.c:74:6:sht3x_read_temperature_and_humidity	4
-../Core/Inc/sht3x.c:100:6:sht3x_set_header_enable	2
