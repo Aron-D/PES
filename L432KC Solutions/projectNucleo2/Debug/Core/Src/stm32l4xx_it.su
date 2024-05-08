@@ -9,5 +9,6 @@
 ../Core/Src/stm32l4xx_it.c:187:6:SysTick_Handler	8	static
 ../Core/Src/stm32l4xx_it.c:208:6:DMA1_Channel3_IRQHandler	8	static
 ../Core/Src/stm32l4xx_it.c:222:6:TIM1_BRK_TIM15_IRQHandler	8	static
-../Core/Src/stm32l4xx_it.c:237:6:TIM2_IRQHandler	8	static
-../Core/Src/stm32l4xx_it.c:251:6:I2C1_EV_IRQHandler	8	static
+../Core/Src/stm32l4xx_it.c:237:6:TIM1_UP_TIM16_IRQHandler	8	static
+../Core/Src/stm32l4xx_it.c:251:6:TIM2_IRQHandler	8	static
+../Core/Src/stm32l4xx_it.c:265:6:I2C1_EV_IRQHandler	8	static

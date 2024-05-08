@@ -40,12 +40,22 @@ uint8_t movementBuf[2];
 uint32_t drukSensor;
 uint8_t drukSensorBuf[12];
 uint8_t ledStatus = 0;
+uint8_t nightMode = 0;
+time_t rawtime;
+struct tm *timeInfo;
 
 #define TIM_HANDLE  htim1
 #define TIM_CHANNEL TIM_CHANNEL_2
 #define MAX_LED 10
 #define USE_BRIGHTNESS 1
 #define PI 3.14159265
+
+#define R_DAY 255
+#define G_DAY 200
+#define B_DAY 200
+#define R_NIGHT 255
+#define G_NIGHT 150
+#define B_NIGHT 80
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -67,9 +77,11 @@ UART_HandleTypeDef huart2;
 
 /* USER CODE BEGIN PV */
 uint8_t LED_Data[MAX_LED][4];
-  uint8_t LED_Mod[MAX_LED][4];
-  uint16_t pwmData[(24*MAX_LED)+50];
-  int datasentflag = 0;
+uint8_t LED_Mod[MAX_LED][4];
+uint16_t pwmData[(24*MAX_LED)+50];
+int datasentflag = 0;
+int brightness = 0;
+int isOn = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -100,7 +112,7 @@ void WS2812_Send ();
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-	SysTick_Config(SystemCoreClock / 1000);
+  SysTick_Config(SystemCoreClock / 1000);
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -150,6 +162,39 @@ int main(void)
 		drukSensor = HAL_ADC_GetValue(&hadc1);
 	}
 	sprintf((char*) drukSensorBuf, "%d", (int) drukSensor);
+
+	time(&rawtime);
+	timeInfo = localtime(&rawtime);
+	if (timeInfo->tm_hour > 8 && timeInfo->tm_hour < 20) {
+		nightMode = 0;
+	} else {
+		nightMode = 1;
+	}
+
+	uint8_t timeBuf[2];
+	sprintf((char*) timeBuf, "%d", timeInfo->tm_min);
+	HAL_UART_Transmit(&huart2, (uint8_t*) "Time of day: ", 13, HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart2, timeBuf, strlen((char*)timeBuf), HAL_MAX_DELAY);
+	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
+
+	if (isOn == 1 && brightness < 25) {
+		brightness++;
+		if (nightMode == 1) {
+			for (int i = 0; i < 10; i++) {
+				Set_LED(i, R_NIGHT, G_NIGHT, B_NIGHT);
+			}
+		} else {
+			for (int i = 0; i < 10; i++) {
+				Set_LED(i, R_DAY, G_DAY, B_DAY);
+			}
+		}
+		Set_Brightness(brightness);
+		WS2812_Send();
+	} else if (isOn == 0 && brightness > 0) {
+		brightness--;
+		Set_Brightness(brightness);
+		WS2812_Send();
+	}
 //	HAL_UART_Transmit(&huart2, drukSensorBuf, sizeof(drukSensorBuf), HAL_MAX_DELAY);
 //	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
 
@@ -609,37 +654,18 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else if (received_command == 0x12) {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDSON flag, turning LEDstrip on\n\r", 43, HAL_MAX_DELAY);
-		Set_LED(0, 255, 255, 255);
-		Set_LED(1, 255, 255, 255);
-		Set_LED(2, 255, 255, 255);
-		Set_LED(3, 255, 255, 255);
-		Set_LED(4, 255, 255, 255);
-		Set_LED(5, 255, 255, 255);
-		Set_LED(6, 255, 255, 255);
-		Set_LED(7, 255, 255, 255);
-		Set_LED(8, 255, 255, 255);
-		Set_LED(9, 0, 255, 255);
-		Set_Brightness(45);
-		WS2812_Send();
+		isOn = 1;
 		HAL_TIM_Base_Start_IT(&htim2);
 		TIM2->CNT = 0;
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else if (received_command == 0x13) {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDSOFF flag, turning LEDstrip off\n\r", 45, HAL_MAX_DELAY);
-		Set_Brightness(0);
-		WS2812_Send();
+		isOn = 0;
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Huh?\n", 5, HAL_MAX_DELAY);
 	}
 }
-
-//uint32_t millis() {
-//	return counter;
-//}
-//void TIM2_IRQHandler(void){
-//	HAL_TIM_IRQHandler(&htim2);
-//}
 
 void Set_LED (int LEDnum, int Red, int Green, int Blue)
 {
