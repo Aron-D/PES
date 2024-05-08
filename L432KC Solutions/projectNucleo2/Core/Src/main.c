@@ -34,16 +34,6 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-uint8_t received_command = 0;
-uint8_t movementSensor = 0;
-uint8_t movementBuf[2];
-uint32_t drukSensor;
-uint8_t drukSensorBuf[12];
-uint8_t ledStatus = 0;
-uint8_t nightMode = 0;
-time_t rawtime;
-struct tm *timeInfo;
-
 #define TIM_HANDLE  htim1
 #define TIM_CHANNEL TIM_CHANNEL_2
 #define MAX_LED 10
@@ -84,6 +74,15 @@ uint16_t pwmData[(24*MAX_LED)+50];
 int datasentflag = 0;
 int brightness = 0;
 int isOn = 0;
+uint8_t received_command = 0;
+uint8_t movementSensor = 0;
+uint8_t movementBuf[2];
+uint32_t drukSensor;
+uint8_t drukSensorBuf[12];
+uint8_t ledStatus = 0;
+uint8_t nightMode = 0;
+time_t rawtime;
+struct tm *timeInfo;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/

@@ -21,9 +21,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, ALLOC, LOAD, DATA
   8 .data         000000d0  20000000  0800d1a0  00020000  2**3
                   CONTENTS, ALLOC, LOAD, DATA
-  9 .bss          000006cc  200000d0  0800d270  000200d0  2**3
+  9 .bss          000006d0  200000d0  0800d270  000200d0  2**3
                   ALLOC
- 10 ._user_heap_stack 00000604  2000079c  0800d270  0002079c  2**0
+ 10 ._user_heap_stack 00000600  200007a0  0800d270  000207a0  2**0
                   ALLOC
  11 .ARM.attributes 00000030  00000000  00000000  000200d0  2**0
                   CONTENTS, READONLY
@@ -1710,21 +1710,21 @@ int main(void)
  8001254:	20000004 	.word	0x20000004
  8001258:	10624dd3 	.word	0x10624dd3
  800125c:	0800cbb0 	.word	0x0800cbb0
- 8001260:	200002f8 	.word	0x200002f8
- 8001264:	200000ec 	.word	0x200000ec
- 8001268:	20000178 	.word	0x20000178
- 800126c:	200000ed 	.word	0x200000ed
+ 8001260:	200002d0 	.word	0x200002d0
+ 8001264:	200005f8 	.word	0x200005f8
+ 8001268:	20000150 	.word	0x20000150
+ 800126c:	200005f9 	.word	0x200005f9
  8001270:	0800cbc8 	.word	0x0800cbc8
- 8001274:	200000f0 	.word	0x200000f0
- 8001278:	20000114 	.word	0x20000114
- 800127c:	200000f4 	.word	0x200000f4
+ 8001274:	200005fc 	.word	0x200005fc
+ 8001278:	200000ec 	.word	0x200000ec
+ 800127c:	20000600 	.word	0x20000600
  8001280:	0800cbcc 	.word	0x0800cbcc
- 8001284:	200000f8 	.word	0x200000f8
- 8001288:	20000108 	.word	0x20000108
- 800128c:	20000110 	.word	0x20000110
- 8001290:	20000104 	.word	0x20000104
- 8001294:	2000061c 	.word	0x2000061c
- 8001298:	20000618 	.word	0x20000618
+ 8001284:	20000604 	.word	0x20000604
+ 8001288:	20000618 	.word	0x20000618
+ 800128c:	20000620 	.word	0x20000620
+ 8001290:	20000610 	.word	0x20000610
+ 8001294:	200005f4 	.word	0x200005f4
+ 8001298:	200005f0 	.word	0x200005f0
  800129c:	55555556 	.word	0x55555556
 
 080012a0 <SystemClock_Config>:
@@ -2012,7 +2012,7 @@ static void MX_ADC1_Init(void)
  800141a:	46bd      	mov	sp, r7
  800141c:	bd80      	pop	{r7, pc}
  800141e:	bf00      	nop
- 8001420:	20000114 	.word	0x20000114
+ 8001420:	200000ec 	.word	0x200000ec
  8001424:	50040000 	.word	0x50040000
  8001428:	25b00200 	.word	0x25b00200
 
@@ -2112,7 +2112,7 @@ static void MX_I2C1_Init(void)
  800149a:	bf00      	nop
  800149c:	bd80      	pop	{r7, pc}
  800149e:	bf00      	nop
- 80014a0:	20000178 	.word	0x20000178
+ 80014a0:	20000150 	.word	0x20000150
  80014a4:	40005400 	.word	0x40005400
  80014a8:	10808dd3 	.word	0x10808dd3
 
@@ -2307,7 +2307,7 @@ static void MX_TIM1_Init(void)
  80015ba:	3758      	adds	r7, #88	; 0x58
  80015bc:	46bd      	mov	sp, r7
  80015be:	bd80      	pop	{r7, pc}
- 80015c0:	200001cc 	.word	0x200001cc
+ 80015c0:	200001a4 	.word	0x200001a4
  80015c4:	40012c00 	.word	0x40012c00
 
 080015c8 <MX_TIM2_Init>:
@@ -2467,7 +2467,7 @@ static void MX_TIM2_Init(void)
  80016ae:	46bd      	mov	sp, r7
  80016b0:	bd80      	pop	{r7, pc}
  80016b2:	bf00      	nop
- 80016b4:	20000218 	.word	0x20000218
+ 80016b4:	200001f0 	.word	0x200001f0
  80016b8:	000249f0 	.word	0x000249f0
 
 080016bc <MX_TIM15_Init>:
@@ -2582,7 +2582,7 @@ static void MX_TIM15_Init(void)
  8001752:	3720      	adds	r7, #32
  8001754:	46bd      	mov	sp, r7
  8001756:	bd80      	pop	{r7, pc}
- 8001758:	20000264 	.word	0x20000264
+ 8001758:	2000023c 	.word	0x2000023c
  800175c:	40014000 	.word	0x40014000
 
 08001760 <MX_USART2_UART_Init>:
@@ -2657,7 +2657,7 @@ static void MX_USART2_UART_Init(void)
  80017b2:	bf00      	nop
  80017b4:	bd80      	pop	{r7, pc}
  80017b6:	bf00      	nop
- 80017b8:	200002f8 	.word	0x200002f8
+ 80017b8:	200002d0 	.word	0x200002d0
  80017bc:	40004400 	.word	0x40004400
 
 080017c0 <MX_DMA_Init>:
@@ -2992,18 +2992,18 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
  80019fe:	3708      	adds	r7, #8
  8001a00:	46bd      	mov	sp, r7
  8001a02:	bd80      	pop	{r7, pc}
- 8001a04:	200000ec 	.word	0x200000ec
+ 8001a04:	200005f8 	.word	0x200005f8
  8001a08:	0800cbd0 	.word	0x0800cbd0
- 8001a0c:	200002f8 	.word	0x200002f8
- 8001a10:	200000f0 	.word	0x200000f0
+ 8001a0c:	200002d0 	.word	0x200002d0
+ 8001a10:	200005fc 	.word	0x200005fc
  8001a14:	0800cc08 	.word	0x0800cc08
- 8001a18:	20000178 	.word	0x20000178
+ 8001a18:	20000150 	.word	0x20000150
  8001a1c:	0800cc0c 	.word	0x0800cc0c
  8001a20:	0800cc1c 	.word	0x0800cc1c
- 8001a24:	200000f8 	.word	0x200000f8
+ 8001a24:	20000604 	.word	0x20000604
  8001a28:	0800cc54 	.word	0x0800cc54
- 8001a2c:	2000061c 	.word	0x2000061c
- 8001a30:	20000218 	.word	0x20000218
+ 8001a2c:	200005f4 	.word	0x200005f4
+ 8001a30:	200001f0 	.word	0x200001f0
  8001a34:	0800cc80 	.word	0x0800cc80
  8001a38:	0800ccb0 	.word	0x0800ccb0
 
@@ -3058,7 +3058,7 @@ void Set_LED (int LEDnum, int Red, int Green, int Blue)
  8001a8c:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001a90:	4770      	bx	lr
  8001a92:	bf00      	nop
- 8001a94:	20000380 	.word	0x20000380
+ 8001a94:	20000358 	.word	0x20000358
 
 08001a98 <Set_Brightness>:
 
@@ -3179,8 +3179,8 @@ void Set_Brightness (int brightness) { // 0-45
  8001b84:	f3af 8000 	nop.w
  8001b88:	53c8d4f1 	.word	0x53c8d4f1
  8001b8c:	400921fb 	.word	0x400921fb
- 8001b90:	20000380 	.word	0x20000380
- 8001b94:	200003a8 	.word	0x200003a8
+ 8001b90:	20000358 	.word	0x20000358
+ 8001b94:	20000380 	.word	0x20000380
  8001b98:	40668000 	.word	0x40668000
 
 08001b9c <WS2812_Send>:
@@ -3311,10 +3311,10 @@ void WS2812_Send () {
  8001c5a:	46bd      	mov	sp, r7
  8001c5c:	bd80      	pop	{r7, pc}
  8001c5e:	bf00      	nop
- 8001c60:	200003a8 	.word	0x200003a8
- 8001c64:	200003d0 	.word	0x200003d0
- 8001c68:	200001cc 	.word	0x200001cc
- 8001c6c:	20000614 	.word	0x20000614
+ 8001c60:	20000380 	.word	0x20000380
+ 8001c64:	200003a8 	.word	0x200003a8
+ 8001c68:	200001a4 	.word	0x200001a4
+ 8001c6c:	200005ec 	.word	0x200005ec
 
 08001c70 <HAL_TIM_PWM_PulseFinishedCallback>:
 
@@ -3338,8 +3338,8 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
  8001c8a:	46bd      	mov	sp, r7
  8001c8c:	bd80      	pop	{r7, pc}
  8001c8e:	bf00      	nop
- 8001c90:	200001cc 	.word	0x200001cc
- 8001c94:	20000614 	.word	0x20000614
+ 8001c90:	200001a4 	.word	0x200001a4
+ 8001c94:	200005ec 	.word	0x200005ec
 
 08001c98 <HAL_TIM_PeriodElapsedCallback>:
 
@@ -3367,7 +3367,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
  8001cb4:	46bd      	mov	sp, r7
  8001cb6:	f85d 7b04 	ldr.w	r7, [sp], #4
  8001cba:	4770      	bx	lr
- 8001cbc:	2000061c 	.word	0x2000061c
+ 8001cbc:	200005f4 	.word	0x200005f4
 
 08001cc0 <Error_Handler>:
 /**
@@ -3818,7 +3818,7 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* htim_pwm)
  8001f42:	bd80      	pop	{r7, pc}
  8001f44:	40012c00 	.word	0x40012c00
  8001f48:	40021000 	.word	0x40021000
- 8001f4c:	200002b0 	.word	0x200002b0
+ 8001f4c:	20000288 	.word	0x20000288
  8001f50:	40020030 	.word	0x40020030
 
 08001f54 <HAL_TIM_Base_MspInit>:
@@ -4330,7 +4330,7 @@ void DMA1_Channel3_IRQHandler(void)
  80021ba:	bf00      	nop
  80021bc:	bd80      	pop	{r7, pc}
  80021be:	bf00      	nop
- 80021c0:	200002b0 	.word	0x200002b0
+ 80021c0:	20000288 	.word	0x20000288
 
 080021c4 <TIM1_BRK_TIM15_IRQHandler>:
 
@@ -4356,8 +4356,8 @@ void TIM1_BRK_TIM15_IRQHandler(void)
 }
  80021d4:	bf00      	nop
  80021d6:	bd80      	pop	{r7, pc}
- 80021d8:	200001cc 	.word	0x200001cc
- 80021dc:	20000264 	.word	0x20000264
+ 80021d8:	200001a4 	.word	0x200001a4
+ 80021dc:	2000023c 	.word	0x2000023c
 
 080021e0 <TIM1_UP_TIM16_IRQHandler>:
 
@@ -4381,7 +4381,7 @@ void TIM1_UP_TIM16_IRQHandler(void)
  80021ea:	bf00      	nop
  80021ec:	bd80      	pop	{r7, pc}
  80021ee:	bf00      	nop
- 80021f0:	200001cc 	.word	0x200001cc
+ 80021f0:	200001a4 	.word	0x200001a4
 
 080021f4 <TIM2_IRQHandler>:
 
@@ -4405,7 +4405,7 @@ void TIM2_IRQHandler(void)
  80021fe:	bf00      	nop
  8002200:	bd80      	pop	{r7, pc}
  8002202:	bf00      	nop
- 8002204:	20000218 	.word	0x20000218
+ 8002204:	200001f0 	.word	0x200001f0
 
 08002208 <I2C1_EV_IRQHandler>:
 
@@ -4429,7 +4429,7 @@ void I2C1_EV_IRQHandler(void)
  8002212:	bf00      	nop
  8002214:	bd80      	pop	{r7, pc}
  8002216:	bf00      	nop
- 8002218:	20000178 	.word	0x20000178
+ 8002218:	20000150 	.word	0x20000150
 
 0800221c <_getpid>:
  800221c:	b480      	push	{r7}
@@ -4627,7 +4627,7 @@ void I2C1_EV_IRQHandler(void)
  8002396:	bd80      	pop	{r7, pc}
  8002398:	20010000 	.word	0x20010000
  800239c:	00000400 	.word	0x00000400
- 80023a0:	20000624 	.word	0x20000624
+ 80023a0:	20000628 	.word	0x20000628
  80023a4:	200007a0 	.word	0x200007a0
 
 080023a8 <SystemInit>:
@@ -4685,7 +4685,7 @@ void I2C1_EV_IRQHandler(void)
  800240c:	200000d0 	.word	0x200000d0
  8002410:	0800d1a0 	.word	0x0800d1a0
  8002414:	200000d0 	.word	0x200000d0
- 8002418:	2000079c 	.word	0x2000079c
+ 8002418:	200007a0 	.word	0x200007a0
 
 0800241c <ADC1_IRQHandler>:
  800241c:	e7fe      	b.n	800241c <ADC1_IRQHandler>
@@ -4784,7 +4784,7 @@ void I2C1_EV_IRQHandler(void)
  80024e4:	4770      	bx	lr
  80024e6:	bf00      	nop
  80024e8:	2000000c 	.word	0x2000000c
- 80024ec:	20000628 	.word	0x20000628
+ 80024ec:	2000062c 	.word	0x2000062c
 
 080024f0 <HAL_GetTick>:
  80024f0:	b480      	push	{r7}
@@ -4796,7 +4796,7 @@ void I2C1_EV_IRQHandler(void)
  80024fc:	f85d 7b04 	ldr.w	r7, [sp], #4
  8002500:	4770      	bx	lr
  8002502:	bf00      	nop
- 8002504:	20000628 	.word	0x20000628
+ 8002504:	2000062c 	.word	0x2000062c
 
 08002508 <HAL_Delay>:
  8002508:	b580      	push	{r7, lr}
@@ -17215,7 +17215,7 @@ void I2C1_EV_IRQHandler(void)
  80093ac:	0800953b 	.word	0x0800953b
  80093b0:	08009573 	.word	0x08009573
  80093b4:	08009597 	.word	0x08009597
- 80093b8:	2000062c 	.word	0x2000062c
+ 80093b8:	20000630 	.word	0x20000630
 
 080093bc <stdio_exit_handler>:
  80093bc:	4a02      	ldr	r2, [pc, #8]	; (80093c8 <stdio_exit_handler+0xc>)
@@ -17250,9 +17250,9 @@ void I2C1_EV_IRQHandler(void)
  8009400:	f001 bac2 	b.w	800a988 <_fflush_r>
  8009404:	bd10      	pop	{r4, pc}
  8009406:	bf00      	nop
- 8009408:	2000062c 	.word	0x2000062c
- 800940c:	20000694 	.word	0x20000694
- 8009410:	200006fc 	.word	0x200006fc
+ 8009408:	20000630 	.word	0x20000630
+ 800940c:	20000698 	.word	0x20000698
+ 8009410:	20000700 	.word	0x20000700
 
 08009414 <global_stdio_init.part.0>:
  8009414:	b510      	push	{r4, lr}
@@ -17273,21 +17273,21 @@ void I2C1_EV_IRQHandler(void)
  800943a:	e8bd 4010 	ldmia.w	sp!, {r4, lr}
  800943e:	2112      	movs	r1, #18
  8009440:	f7ff bf86 	b.w	8009350 <std>
- 8009444:	20000764 	.word	0x20000764
- 8009448:	2000062c 	.word	0x2000062c
+ 8009444:	20000768 	.word	0x20000768
+ 8009448:	20000630 	.word	0x20000630
  800944c:	080093bd 	.word	0x080093bd
 
 08009450 <__sfp_lock_acquire>:
  8009450:	4801      	ldr	r0, [pc, #4]	; (8009458 <__sfp_lock_acquire+0x8>)
  8009452:	f000 bd37 	b.w	8009ec4 <__retarget_lock_acquire_recursive>
  8009456:	bf00      	nop
- 8009458:	20000792 	.word	0x20000792
+ 8009458:	20000796 	.word	0x20000796
 
 0800945c <__sfp_lock_release>:
  800945c:	4801      	ldr	r0, [pc, #4]	; (8009464 <__sfp_lock_release+0x8>)
  800945e:	f000 bd33 	b.w	8009ec8 <__retarget_lock_release_recursive>
  8009462:	bf00      	nop
- 8009464:	20000792 	.word	0x20000792
+ 8009464:	20000796 	.word	0x20000796
 
 08009468 <__sinit>:
  8009468:	b510      	push	{r4, lr}
@@ -17307,7 +17307,7 @@ void I2C1_EV_IRQHandler(void)
  800948c:	e7f2      	b.n	8009474 <__sinit+0xc>
  800948e:	bf00      	nop
  8009490:	080093d5 	.word	0x080093d5
- 8009494:	20000764 	.word	0x20000764
+ 8009494:	20000768 	.word	0x20000768
 
 08009498 <_fwalk_sglue>:
  8009498:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -17663,7 +17663,7 @@ void I2C1_EV_IRQHandler(void)
  80097cc:	e7f9      	b.n	80097c2 <localtime_r+0x1d6>
  80097ce:	bf00      	nop
  80097d0:	0800cd7c 	.word	0x0800cd7c
- 80097d4:	20000784 	.word	0x20000784
+ 80097d4:	20000788 	.word	0x20000788
 
 080097d8 <time>:
  80097d8:	b51f      	push	{r0, r1, r2, r3, r4, lr}
@@ -17815,13 +17815,13 @@ void I2C1_EV_IRQHandler(void)
  8009958:	4801      	ldr	r0, [pc, #4]	; (8009960 <__tz_lock+0x8>)
  800995a:	f000 bab2 	b.w	8009ec2 <__retarget_lock_acquire>
  800995e:	bf00      	nop
- 8009960:	20000793 	.word	0x20000793
+ 8009960:	20000797 	.word	0x20000797
 
 08009964 <__tz_unlock>:
  8009964:	4801      	ldr	r0, [pc, #4]	; (800996c <__tz_unlock+0x8>)
  8009966:	f000 baae 	b.w	8009ec6 <__retarget_lock_release>
  800996a:	bf00      	nop
- 800996c:	20000793 	.word	0x20000793
+ 800996c:	20000797 	.word	0x20000797
 
 08009970 <_tzset_unlocked>:
  8009970:	4b01      	ldr	r3, [pc, #4]	; (8009978 <_tzset_unlocked+0x8>)
@@ -18108,16 +18108,16 @@ void I2C1_EV_IRQHandler(void)
  8009c74:	6525      	str	r5, [r4, #80]	; 0x50
  8009c76:	e6af      	b.n	80099d8 <_tzset_unlocked_r+0x5c>
  8009c78:	0800cddc 	.word	0x0800cddc
- 8009c7c:	20000780 	.word	0x20000780
- 8009c80:	20000788 	.word	0x20000788
+ 8009c7c:	20000784 	.word	0x20000784
+ 8009c80:	2000078c 	.word	0x2000078c
  8009c84:	0800cddf 	.word	0x0800cddf
- 8009c88:	20000784 	.word	0x20000784
+ 8009c88:	20000788 	.word	0x20000788
  8009c8c:	2000001c 	.word	0x2000001c
  8009c90:	0800ce65 	.word	0x0800ce65
- 8009c94:	20000774 	.word	0x20000774
+ 8009c94:	20000778 	.word	0x20000778
  8009c98:	0800cde3 	.word	0x0800cde3
  8009c9c:	0800ce18 	.word	0x0800ce18
- 8009ca0:	20000768 	.word	0x20000768
+ 8009ca0:	2000076c 	.word	0x2000076c
  8009ca4:	0800cdf6 	.word	0x0800cdf6
  8009ca8:	0800ce04 	.word	0x0800ce04
  8009cac:	0800ce17 	.word	0x0800ce17
@@ -18215,10 +18215,10 @@ void I2C1_EV_IRQHandler(void)
  8009da6:	2301      	movne	r3, #1
  8009da8:	6013      	str	r3, [r2, #0]
  8009daa:	e615      	b.n	80099d8 <_tzset_unlocked_r+0x5c>
- 8009dac:	20000768 	.word	0x20000768
+ 8009dac:	2000076c 	.word	0x2000076c
  8009db0:	0800cdf6 	.word	0x0800cdf6
- 8009db4:	20000774 	.word	0x20000774
- 8009db8:	20000784 	.word	0x20000784
+ 8009db4:	20000778 	.word	0x20000778
+ 8009db8:	20000788 	.word	0x20000788
 
 08009dbc <_close_r>:
  8009dbc:	b538      	push	{r3, r4, r5, lr}
@@ -18234,7 +18234,7 @@ void I2C1_EV_IRQHandler(void)
  8009dd2:	b103      	cbz	r3, 8009dd6 <_close_r+0x1a>
  8009dd4:	6023      	str	r3, [r4, #0]
  8009dd6:	bd38      	pop	{r3, r4, r5, pc}
- 8009dd8:	2000078c 	.word	0x2000078c
+ 8009dd8:	20000790 	.word	0x20000790
 
 08009ddc <_gettimeofday_r>:
  8009ddc:	b538      	push	{r3, r4, r5, lr}
@@ -18252,7 +18252,7 @@ void I2C1_EV_IRQHandler(void)
  8009df6:	6023      	str	r3, [r4, #0]
  8009df8:	bd38      	pop	{r3, r4, r5, pc}
  8009dfa:	bf00      	nop
- 8009dfc:	2000078c 	.word	0x2000078c
+ 8009dfc:	20000790 	.word	0x20000790
 
 08009e00 <_lseek_r>:
  8009e00:	b538      	push	{r3, r4, r5, lr}
@@ -18270,7 +18270,7 @@ void I2C1_EV_IRQHandler(void)
  8009e1a:	b103      	cbz	r3, 8009e1e <_lseek_r+0x1e>
  8009e1c:	6023      	str	r3, [r4, #0]
  8009e1e:	bd38      	pop	{r3, r4, r5, pc}
- 8009e20:	2000078c 	.word	0x2000078c
+ 8009e20:	20000790 	.word	0x20000790
 
 08009e24 <_read_r>:
  8009e24:	b538      	push	{r3, r4, r5, lr}
@@ -18288,7 +18288,7 @@ void I2C1_EV_IRQHandler(void)
  8009e3e:	b103      	cbz	r3, 8009e42 <_read_r+0x1e>
  8009e40:	6023      	str	r3, [r4, #0]
  8009e42:	bd38      	pop	{r3, r4, r5, pc}
- 8009e44:	2000078c 	.word	0x2000078c
+ 8009e44:	20000790 	.word	0x20000790
 
 08009e48 <_write_r>:
  8009e48:	b538      	push	{r3, r4, r5, lr}
@@ -18306,7 +18306,7 @@ void I2C1_EV_IRQHandler(void)
  8009e62:	b103      	cbz	r3, 8009e66 <_write_r+0x1e>
  8009e64:	6023      	str	r3, [r4, #0]
  8009e66:	bd38      	pop	{r3, r4, r5, pc}
- 8009e68:	2000078c 	.word	0x2000078c
+ 8009e68:	20000790 	.word	0x20000790
 
 08009e6c <__errno>:
  8009e6c:	4b01      	ldr	r3, [pc, #4]	; (8009e74 <__errno+0x8>)
@@ -18465,7 +18465,7 @@ void I2C1_EV_IRQHandler(void)
  8009fa6:	e7ca      	b.n	8009f3e <_free_r+0x26>
  8009fa8:	b003      	add	sp, #12
  8009faa:	bd30      	pop	{r4, r5, pc}
- 8009fac:	20000794 	.word	0x20000794
+ 8009fac:	20000798 	.word	0x20000798
 
 08009fb0 <_findenv_r>:
  8009fb0:	e92d 4ff8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, sl, fp, lr}
@@ -18562,7 +18562,7 @@ void I2C1_EV_IRQHandler(void)
  800a08c:	f04f 34ff 	mov.w	r4, #4294967295
  800a090:	4620      	mov	r0, r4
  800a092:	bd70      	pop	{r4, r5, r6, pc}
- 800a094:	20000798 	.word	0x20000798
+ 800a094:	2000079c 	.word	0x2000079c
 
 0800a098 <_malloc_r>:
  800a098:	e92d 43f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, r9, lr}
@@ -18673,19 +18673,19 @@ void I2C1_EV_IRQHandler(void)
  800a18e:	605b      	str	r3, [r3, #4]
  800a190:	deff      	udf	#255	; 0xff
  800a192:	bf00      	nop
- 800a194:	20000794 	.word	0x20000794
+ 800a194:	20000798 	.word	0x20000798
 
 0800a198 <__malloc_lock>:
  800a198:	4801      	ldr	r0, [pc, #4]	; (800a1a0 <__malloc_lock+0x8>)
  800a19a:	f7ff be93 	b.w	8009ec4 <__retarget_lock_acquire_recursive>
  800a19e:	bf00      	nop
- 800a1a0:	20000791 	.word	0x20000791
+ 800a1a0:	20000795 	.word	0x20000795
 
 0800a1a4 <__malloc_unlock>:
  800a1a4:	4801      	ldr	r0, [pc, #4]	; (800a1ac <__malloc_unlock+0x8>)
  800a1a6:	f7ff be8f 	b.w	8009ec8 <__retarget_lock_release_recursive>
  800a1aa:	bf00      	nop
- 800a1ac:	20000791 	.word	0x20000791
+ 800a1ac:	20000795 	.word	0x20000795
 
 0800a1b0 <_strtoul_l.constprop.0>:
  800a1b0:	e92d 43f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, lr}
@@ -19795,7 +19795,7 @@ void I2C1_EV_IRQHandler(void)
  800ac16:	b103      	cbz	r3, 800ac1a <_sbrk_r+0x1a>
  800ac18:	6023      	str	r3, [r4, #0]
  800ac1a:	bd38      	pop	{r3, r4, r5, pc}
- 800ac1c:	2000078c 	.word	0x2000078c
+ 800ac1c:	20000790 	.word	0x20000790
 
 0800ac20 <memcpy>:
  800ac20:	440a      	add	r2, r1
@@ -19822,13 +19822,13 @@ void I2C1_EV_IRQHandler(void)
  800ac4c:	4801      	ldr	r0, [pc, #4]	; (800ac54 <__env_lock+0x8>)
  800ac4e:	f7ff b939 	b.w	8009ec4 <__retarget_lock_acquire_recursive>
  800ac52:	bf00      	nop
- 800ac54:	20000790 	.word	0x20000790
+ 800ac54:	20000794 	.word	0x20000794
 
 0800ac58 <__env_unlock>:
  800ac58:	4801      	ldr	r0, [pc, #4]	; (800ac60 <__env_unlock+0x8>)
  800ac5a:	f7ff b935 	b.w	8009ec8 <__retarget_lock_release_recursive>
  800ac5e:	bf00      	nop
- 800ac60:	20000790 	.word	0x20000790
+ 800ac60:	20000794 	.word	0x20000794
 
 0800ac64 <_realloc_r>:
  800ac64:	e92d 41f0 	stmdb	sp!, {r4, r5, r6, r7, r8, lr}
@@ -21096,7 +21096,7 @@ void I2C1_EV_IRQHandler(void)
  800b816:	6023      	str	r3, [r4, #0]
  800b818:	bd38      	pop	{r3, r4, r5, pc}
  800b81a:	bf00      	nop
- 800b81c:	2000078c 	.word	0x2000078c
+ 800b81c:	20000790 	.word	0x20000790
 
 0800b820 <_getpid_r>:
  800b820:	f7f6 bcfc 	b.w	800221c <_getpid>
@@ -21317,7 +21317,7 @@ void I2C1_EV_IRQHandler(void)
  800ba1a:	6023      	str	r3, [r4, #0]
  800ba1c:	bd38      	pop	{r3, r4, r5, pc}
  800ba1e:	bf00      	nop
- 800ba20:	2000078c 	.word	0x2000078c
+ 800ba20:	20000790 	.word	0x20000790
 
 0800ba24 <_isatty_r>:
  800ba24:	b538      	push	{r3, r4, r5, lr}
@@ -21333,7 +21333,7 @@ void I2C1_EV_IRQHandler(void)
  800ba3a:	b103      	cbz	r3, 800ba3e <_isatty_r+0x1a>
  800ba3c:	6023      	str	r3, [r4, #0]
  800ba3e:	bd38      	pop	{r3, r4, r5, pc}
- 800ba40:	2000078c 	.word	0x2000078c
+ 800ba40:	20000790 	.word	0x20000790
  800ba44:	00000000 	.word	0x00000000
 
 0800ba48 <tan>:
@@ -22916,7 +22916,7 @@ void I2C1_EV_IRQHandler(void)
  800cb8c:	601a      	str	r2, [r3, #0]
  800cb8e:	f04f 30ff 	mov.w	r0, #4294967295
  800cb92:	4770      	bx	lr
- 800cb94:	2000078c 	.word	0x2000078c
+ 800cb94:	20000790 	.word	0x20000790
 
 0800cb98 <_init>:
  800cb98:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
