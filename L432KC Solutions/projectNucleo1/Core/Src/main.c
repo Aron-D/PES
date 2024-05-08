@@ -53,7 +53,9 @@ UART_HandleTypeDef huart2;
 //static const uint8_t REG_GAS = 0x00;
 uint8_t received_command = 0;
 uint8_t temperatureBuf[12];
-float temp = 20;
+uint8_t humidityBuf[12];
+float temp = 73;
+float humidity = 73;
 
 /* USER CODE END PV */
 
@@ -128,12 +130,12 @@ int main(void)
 
   while (1)
   {
-	  float humidity;
 	  HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
+	  /*
+	   * Readout temperature and humidity using library functions and store them in corresponding buffers
+	   */
 	  sht3x_read_temperature_and_humidity(&handle, &temp, &humidity);
 	  sprintf((char*) temperatureBuf, "%u", (unsigned int) temp);
-	  //HAL_UART_Transmit(&huart2, buf, strlen((char*)buf), HAL_MAX_DELAY);
-	  //HAL_GPIO_TogglePin(LEDOUT_GPIO_Port, LEDOUT_Pin);
 	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
@@ -380,6 +382,13 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+/*
+ * Receive a command flag from the server Pi, and react accordingly
+ * 0x01 - Request temperature data
+ * 0x02 - Turn single LED ON
+ * 0x03 - Turn single LED OFF
+ * 0x04 - Request button data (Not in use)
+ */
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 	if (received_command == 0x01) {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Received TEMP flag, returning temp: ", 36, HAL_MAX_DELAY);
@@ -407,37 +416,10 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
 		}
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);*/
-	} else if (received_command == 0x05) {
-		HAL_UART_Transmit(&huart2, (uint8_t*) "Received MOV flag, returning movementSensor status: ", 52, HAL_MAX_DELAY);
-		HAL_UART_Transmit(&huart2, temperatureBuf, strlen((char*)temperatureBuf), HAL_MAX_DELAY);
-		HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
-		if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen((char*)temperatureBuf)) != HAL_OK) {
-			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
-		}
-	} else if (received_command == 0x10) {
-		HAL_UART_Transmit(&huart2, (uint8_t*) "Received MOV2 flag, returning movementSensor2 status\n\r", 54, HAL_MAX_DELAY);
-		if (HAL_I2C_Slave_Transmit_IT(&hi2c1, "Hi", 2) != HAL_OK) {
-			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
-		}
-	} else if (received_command == 0x11) {
-		HAL_UART_Transmit(&huart2, (uint8_t*) "Received PRS flag, returning pressurePad status\n\r", 49, HAL_MAX_DELAY);
-		if (HAL_I2C_Slave_Transmit_IT(&hi2c1, "Hallo", 5) != HAL_OK) {
-			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
-		}
 	} else {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Huh?\n", 5, HAL_MAX_DELAY);
 	}
 }
-
-//void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-//	if (GPIO_Pin == BUT1_Pin) {
-//		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDOFF flag, turning LED ON\n\r", 37, HAL_MAX_DELAY);
-//		if (HAL_I2C_Slave_Transmit_IT(&hi2c1, buf, strlen((char*)buf)) != HAL_OK) {
-//			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
-//		}
-//	}
-//}
-
 /* USER CODE END 4 */
 
 /**
