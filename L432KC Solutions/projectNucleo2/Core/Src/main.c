@@ -56,6 +56,8 @@ struct tm *timeInfo;
 #define R_NIGHT 255
 #define G_NIGHT 150
 #define B_NIGHT 80
+
+#define BRTNS_MULT 3
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -165,19 +167,19 @@ int main(void)
 
 	time(&rawtime);
 	timeInfo = localtime(&rawtime);
-	if (timeInfo->tm_hour > 8 && timeInfo->tm_hour < 20) {
-		nightMode = 0;
-	} else {
+	if (timeInfo->tm_hour > 8 && timeInfo->tm_hour < 21) {
 		nightMode = 1;
+	} else {
+		nightMode = 0;
 	}
 
-	uint8_t timeBuf[2];
-	sprintf((char*) timeBuf, "%d", timeInfo->tm_min);
-	HAL_UART_Transmit(&huart2, (uint8_t*) "Time of day: ", 13, HAL_MAX_DELAY);
-	HAL_UART_Transmit(&huart2, timeBuf, strlen((char*)timeBuf), HAL_MAX_DELAY);
-	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
+//	uint8_t timeBuf[2];
+//	sprintf((char*) timeBuf, "%d", timeInfo->tm_min);
+//	HAL_UART_Transmit(&huart2, (uint8_t*) "Time of day: ", 13, HAL_MAX_DELAY);
+//	HAL_UART_Transmit(&huart2, timeBuf, strlen((char*)timeBuf), HAL_MAX_DELAY);
+//	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
 
-	if (isOn == 1 && brightness < 25) {
+	if (isOn == 1 && brightness < 25 * BRTNS_MULT) {
 		brightness++;
 		if (nightMode == 1) {
 			for (int i = 0; i < 10; i++) {
@@ -188,11 +190,11 @@ int main(void)
 				Set_LED(i, R_DAY, G_DAY, B_DAY);
 			}
 		}
-		Set_Brightness(brightness);
+		Set_Brightness(brightness / BRTNS_MULT);
 		WS2812_Send();
 	} else if (isOn == 0 && brightness > 0) {
 		brightness--;
-		Set_Brightness(brightness);
+		Set_Brightness(brightness / BRTNS_MULT);
 		WS2812_Send();
 	}
 //	HAL_UART_Transmit(&huart2, drukSensorBuf, sizeof(drukSensorBuf), HAL_MAX_DELAY);
