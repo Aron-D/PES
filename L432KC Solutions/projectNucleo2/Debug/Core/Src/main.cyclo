@@ -13,7 +13,7 @@
 ../Core/Src/main.c:652:6:HAL_I2C_SlaveRxCpltCallback	7
 ../Core/Src/main.c:684:6:Set_LED	1
 ../Core/Src/main.c:692:6:Set_Brightness	4
-../Core/Src/main.c:712:6:WS2812_Send	5
-../Core/Src/main.c:753:6:HAL_TIM_PWM_PulseFinishedCallback	1
-../Core/Src/main.c:762:6:HAL_TIM_PeriodElapsedCallback	2
-../Core/Src/main.c:773:6:Error_Handler	1
+../Core/Src/main.c:706:6:WS2812_Send	5
+../Core/Src/main.c:738:6:HAL_TIM_PWM_PulseFinishedCallback	1
+../Core/Src/main.c:747:6:HAL_TIM_PeriodElapsedCallback	2
+../Core/Src/main.c:758:6:Error_Handler	1
