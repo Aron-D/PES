@@ -390,6 +390,7 @@ static void MX_GPIO_Init(void)
  * 0x04 - Request button data (Not in use)
  */
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
+	//yete
 	if (received_command == 0x01) {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Received TEMP flag, returning temp: ", 36, HAL_MAX_DELAY);
 		HAL_UART_Transmit(&huart2, temperatureBuf, strlen((char*)temperatureBuf), HAL_MAX_DELAY);
