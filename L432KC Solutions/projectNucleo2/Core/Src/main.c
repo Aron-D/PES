@@ -153,11 +153,16 @@ int main(void)
   while (1)
   {
 	HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
+
+	/*
+	 * Read movement sensor pin and store result in corresponding buffer
+	 */
 	movementSensor = HAL_GPIO_ReadPin(movementSensor_GPIO_Port, movementSensor_Pin);
 	sprintf((char*) movementBuf, "%u", movementSensor);
-//	HAL_UART_Transmit(&huart2, movementBuf, sizeof(movementBuf), HAL_MAX_DELAY);
-//	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
 
+	/*
+	 * Read AD converter connected to the pressure sensor and store result in corresponding buffer
+	 */
 	HAL_ADC_Start(&hadc1);
 	if (HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY) == HAL_OK) {
 		HAL_ADC_Stop(&hadc1);
@@ -165,6 +170,9 @@ int main(void)
 	}
 	sprintf((char*) drukSensorBuf, "%d", (int) drukSensor);
 
+	/*
+	 * Pull up local time and determine whether night mode should be enabled or not
+	 */
 	time(&rawtime);
 	timeInfo = localtime(&rawtime);
 	if (timeInfo->tm_hour > 8 && timeInfo->tm_hour < 21) {
@@ -173,12 +181,10 @@ int main(void)
 		nightMode = 0;
 	}
 
-//	uint8_t timeBuf[2];
-//	sprintf((char*) timeBuf, "%d", timeInfo->tm_min);
-//	HAL_UART_Transmit(&huart2, (uint8_t*) "Time of day: ", 13, HAL_MAX_DELAY);
-//	HAL_UART_Transmit(&huart2, timeBuf, strlen((char*)timeBuf), HAL_MAX_DELAY);
-//	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
-
+	/*
+	 * If LEDs should be on, increment brightness every loop until desired brightness is reached
+	 * If LEDs should be off, decrement brightness every loop until LEDs are off
+	 */
 	if (isOn == 1 && brightness < 25 * BRTNS_MULT) {
 		brightness++;
 		if (nightMode == 1) {
@@ -197,8 +203,6 @@ int main(void)
 		Set_Brightness(brightness / BRTNS_MULT);
 		WS2812_Send();
 	}
-//	HAL_UART_Transmit(&huart2, drukSensorBuf, sizeof(drukSensorBuf), HAL_MAX_DELAY);
-//	HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
 
 	HAL_Delay(10);
     /* USER CODE END WHILE */
@@ -637,6 +641,14 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+/*
+ * Receive a command flag from the server Pi, and react accordingly
+ * 0x10 - Request movement sensor data
+ * 0x11 - Request pressure sensor data
+ * 0x12 - Turn LEDs ON
+ * 0x13 - Turn LEDs OFF
+ * DEFAULT - Unknown command, return "Huh?"
+ */
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 	if (received_command == 0x10) {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Received MOV flag, returning movementSensor status: ", 52, HAL_MAX_DELAY);
