@@ -388,6 +388,7 @@ static void MX_GPIO_Init(void)
  * 0x02 - Turn single LED ON
  * 0x03 - Turn single LED OFF
  * 0x04 - Request button data (Not in use)
+ * 0x05 - Request humidity data
  */
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 	if (received_command == 0x01) {
