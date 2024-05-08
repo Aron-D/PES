@@ -416,6 +416,14 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
 		}
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);*/
+	} else if (received_command == 0x05) {
+		HAL_UART_Transmit(&huart2, (uint8_t*) "Received HUMD flag, returning humidity: ", 40, HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart2, humidityBuf, strlen((char*)humidityBuf), HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
+		if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen((char*)humidityBuf)) != HAL_OK) {
+		   	HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
+		}
+		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Huh?\n", 5, HAL_MAX_DELAY);
 	}
