@@ -756,14 +756,13 @@ void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 	datasentflag=1;
 }
 
+/*
+ * This callback occurs after 15 seconds of no movement, and turns the LEDstrip off
+ */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim) {
-
-	if(htim->Instance == TIM2){
-	HAL_UART_Transmit(&huart2, "halli ik \r\n", 11, HAL_MAX_DELAY);
-	Set_Brightness(0);
-	WS2812_Send();
+	if (htim->Instance == TIM2) {
+		isOn = 0;
 	}
-//	HAL_TIM_Base_Start_IT(&htim2);
 }
 /* USER CODE END 4 */
 
