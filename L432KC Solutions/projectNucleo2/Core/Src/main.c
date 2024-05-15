@@ -172,6 +172,7 @@ int main(void)
 	/*
 	 * If LEDs should be on, increment brightness every loop until desired brightness is reached
 	 * If LEDs should be off, decrement brightness every loop until LEDs are off
+	 * Nightmode determines the max brightness + the color of the LEDstrip
 	 */
 	if (isOn == 1) {
 		if (nightMode == 1  && brightness < MAX_BRTNS_NIGHT * BRTNS_MULT) {
@@ -637,8 +638,9 @@ static void MX_GPIO_Init(void)
  * Receive a command flag from the server Pi, and react accordingly
  * 0x10 - Request movement sensor data
  * 0x11 - Request pressure sensor data
- * 0x12 - Turn LEDs ON
- * 0x13 - Turn LEDs OFF
+ * 0x12 - Turn LEDs ON in DAY mode
+ * 0x13 - Turn LEDs ON in NIGHT mode
+ * 0x14 - Turn LEDs OFF
  * DEFAULT - Unknown command, return "Huh?"
  */
 void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
