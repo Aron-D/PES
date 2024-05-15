@@ -43,11 +43,13 @@
 #define R_DAY 255
 #define G_DAY 200
 #define B_DAY 200
-#define R_NIGHT 255
-#define G_NIGHT 150
-#define B_NIGHT 80
+#define R_NIGHT 200
+#define G_NIGHT 130
+#define B_NIGHT 50
 
 #define BRTNS_MULT 3
+#define MAX_BRTNS_DAY 25
+#define MAX_BRTNS_NIGHT 10
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -81,8 +83,6 @@ uint32_t drukSensor;
 uint8_t drukSensorBuf[12];
 uint8_t ledStatus = 0;
 uint8_t nightMode = 0;
-time_t rawtime;
-struct tm *timeInfo;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -170,33 +170,26 @@ int main(void)
 	sprintf((char*) drukSensorBuf, "%d", (int) drukSensor);
 
 	/*
-	 * Pull up local time and determine whether night mode should be enabled or not
-	 */
-	time(&rawtime);
-	timeInfo = localtime(&rawtime);
-	if (timeInfo->tm_hour > 8 && timeInfo->tm_hour < 21) {
-		nightMode = 1;
-	} else {
-		nightMode = 0;
-	}
-
-	/*
 	 * If LEDs should be on, increment brightness every loop until desired brightness is reached
 	 * If LEDs should be off, decrement brightness every loop until LEDs are off
 	 */
-	if (isOn == 1 && brightness < 25 * BRTNS_MULT) {
-		brightness++;
-		if (nightMode == 1) {
+	if (isOn == 1) {
+		if (nightMode == 1  && brightness < MAX_BRTNS_NIGHT * BRTNS_MULT) {
+			brightness++;
 			for (int i = 0; i < 10; i++) {
 				Set_LED(i, R_NIGHT, G_NIGHT, B_NIGHT);
 			}
-		} else {
+			Set_Brightness(brightness / BRTNS_MULT);
+			WS2812_Send();
+		} else if (brightness < MAX_BRTNS_DAY * BRTNS_MULT) {
+			brightness++;
 			for (int i = 0; i < 10; i++) {
 				Set_LED(i, R_DAY, G_DAY, B_DAY);
 			}
+			Set_Brightness(brightness / BRTNS_MULT);
+			WS2812_Send();
 		}
-		Set_Brightness(brightness / BRTNS_MULT);
-		WS2812_Send();
+
 	} else if (isOn == 0 && brightness > 0) {
 		brightness--;
 		Set_Brightness(brightness / BRTNS_MULT);
@@ -666,12 +659,19 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 		}
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else if (received_command == 0x12) {
-		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDSON flag, turning LEDstrip on\n\r", 43, HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDSON_DAY flag, turning LEDstrip on\n\r", 47, HAL_MAX_DELAY);
 		isOn = 1;
 		HAL_TIM_Base_Start_IT(&htim2);
 		TIM2->CNT = 0;
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else if (received_command == 0x13) {
+		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDSON_NIGHT flag, turning LEDstrip on\n\r", 49, HAL_MAX_DELAY);
+		isOn = 1;
+		nightMode = 1;
+		HAL_TIM_Base_Start_IT(&htim2);
+		TIM2->CNT = 0;
+		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
+	} else if (received_command == 0x14) {
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Received LEDSOFF flag, turning LEDstrip off\n\r", 45, HAL_MAX_DELAY);
 		isOn = 0;
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
