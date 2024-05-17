@@ -54,6 +54,9 @@ UART_HandleTypeDef huart2;
 uint8_t received_command = 0;
 uint8_t temperatureBuf[12];
 uint8_t humidityBuf[12];
+uint8_t co2Buf[12];
+int16_t CO2;
+uint16_t TVOC;
 float temp = 73;
 float humidity = 73;
 
@@ -127,6 +130,8 @@ int main(void)
   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
   HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 
+  //initialisatie van de co2 sensor
+  HAL_I2C_Master_Transmit(&hi2c3, 0x58 << 1, (uint8_t[]) {0x20, 0x03}, 2, HAL_MAX_DELAY);
 
   while (1)
   {
@@ -136,7 +141,26 @@ int main(void)
 	   */
 	  sht3x_read_temperature_and_humidity(&handle, &temp, &humidity);
 	  sprintf((char*) temperatureBuf, "%u", (unsigned int) temp);
+	  //HAL_UART_Transmit(&huart2, (char*)temperatureBuf, 12, HAL_MAX_DELAY);
+	  //HAL_UART_Transmit(&huart2, "\n\r", 2, HAL_MAX_DELAY);
 	  HAL_Delay(10);
+
+		//char buf[50];       // Read data from SGP30 sensor
+		uint8_t data[6]; // Data buffer to store sensor readings
+		// Request measurement
+		uint8_t command[] = {0x20, 0x08}; // Command for reading measurement data
+		HAL_I2C_Master_Transmit(&hi2c3, 0x58 << 1, command, sizeof(command), HAL_MAX_DELAY);
+		// Wait for measurement to complete
+		HAL_Delay(1);
+		// Read measurement data
+		HAL_I2C_Master_Receive(&hi2c3, (0x58 << 1) | 0x01, data, sizeof(data), HAL_MAX_DELAY);
+		// Process data to get CO2 and TVOC
+		CO2 = (data[0] << 8) | data[1];
+		TVOC = (data[3] << 8) | data[4];        // Print data to Serial port (UART)
+		//sprintf(buf, "CO2: %d TVOC: %d \r\n", CO2, TVOC);
+		//HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
+		sprintf((char*) co2Buf, "%d", CO2);
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -416,7 +440,16 @@ void HAL_I2C_SlaveRxCpltCallback(I2C_HandleTypeDef *hi2c) {
 			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
 		}
 		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);*/
+	}  else if (received_command == 0x06){
+		HAL_UART_Transmit(&huart2, (uint8_t*) "Received CO2 flag, returning CO2: ", 34, HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart2, co2Buf, strlen((char*)co2Buf), HAL_MAX_DELAY);
+		HAL_UART_Transmit(&huart2, (uint8_t*) "\n\r", 2, HAL_MAX_DELAY);
+		if (HAL_I2C_Slave_Transmit_IT(&hi2c1, CO2, strlen((char*)co2Buf)) != HAL_OK) {
+			HAL_UART_Transmit(&huart2, (uint8_t*) "Didn't work!\n\r", 40, HAL_MAX_DELAY);
+		}
+		HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 	} else {
+		HAL_I2C_Slave_Transmit_IT(&hi2c1, (char*)"Huh?", 5);
 		HAL_UART_Transmit(&huart2, (uint8_t*) "Huh?\n", 5, HAL_MAX_DELAY);
 	}
 }
