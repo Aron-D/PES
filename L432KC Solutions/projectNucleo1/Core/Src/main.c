@@ -136,6 +136,7 @@ int main(void)
 	   */
 	  sht3x_read_temperature_and_humidity(&handle, &temp, &humidity);
 	  sprintf((char*) temperatureBuf, "%u", (unsigned int) temp);
+	  sprintf((char*) humidityBuf, "%u", (unsigned int) humidity);
 	  HAL_Delay(10);
     /* USER CODE END WHILE */
 
