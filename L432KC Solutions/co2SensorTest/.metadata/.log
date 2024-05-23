@@ -1,0 +1,58 @@
+!SESSION 2024-05-22 13:41:00.044 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-05-22 13:41:17.207
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-05-22 13:41:17.216
+!MESSAGE Log4j2 initialized with config file C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\co2SensorTest\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-05-22 13:41:20.849
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-22 13:42:22.902
+!MESSAGE Indexed 'projectNucleo1' (26 sources, 123 headers) in 11.1 sec: 12,970 declarations; 59,807 references; 9 unresolved inclusions; 1,443 syntax errors; 1,581 unresolved names (2.1%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-22 13:42:38.666
+!MESSAGE Indexed 'projectNucleo1' (26 sources, 125 headers) in 2.56 sec: 12,976 declarations; 62,726 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-22 13:43:36.871
+!MESSAGE Indexed 'projectNucleo1' (26 sources, 125 headers) in 2.31 sec: 12,976 declarations; 62,726 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+!SESSION 2024-05-22 13:43:44.092 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Framework arguments:  C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\.project
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\.project
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-05-22 13:43:48.866
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-05-22 13:43:48.866
+!MESSAGE Log4j2 initialized with config file C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\co2SensorTest\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-05-22 13:43:53.017
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-05-22 13:43:57.721
+!MESSAGE Indexed 'projectNucleo1' (26 sources, 125 headers) in 4.6 sec: 12,976 declarations; 62,726 references; 3 unresolved inclusions; 46 syntax errors; 171 unresolved names (0.23%)
+!SESSION 2024-05-23 15:48:13.548 -----------------------------------------------
+eclipse.buildId=Version 1.14.1
+java.version=17.0.8.1
+java.vendor=Eclipse Adoptium
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2024-05-23 15:48:29.599
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2024-05-23 15:48:29.606
+!MESSAGE Log4j2 initialized with config file C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\co2SensorTest\.metadata\.log4j2.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2024-05-23 15:48:35.768
+!MESSAGE Started RMI Server, listening on port 41337
