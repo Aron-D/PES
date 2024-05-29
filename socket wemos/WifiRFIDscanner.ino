@@ -10,20 +10,15 @@ const char* ssid = "blinkywifi";  // Hotspot name
 const char* password = "";        // Password
 const int serverPort = 8080;      // poort om de server te bereiken
 
-
 WiFiServer server(serverPort);     // Create WiFiServer instance
 MFRC522 mfrc522(SS_PIN, RST_PIN);  // Create MFRC522 instance
-
-// Defined allowed and denied UIDs
-byte allowedUID[4] = { 0xD9, 0x35, 0xD8, 0x14 };  // Card UID: D9 35 D8 14
-byte deniedUID[4] = { 0xB1, 0x55, 0x72, 0x1D };   // Card UID: B1 55 72 1D
 
 void setup() {
   Serial.begin(115200);
   Serial.println();
   Serial.print("Connecting to ");
   Serial.println(ssid);
-  WiFi.begin(ssid, password);  // Start connection 
+  WiFi.begin(ssid, password);  // Start connection
 
   while (WiFi.status() != WL_CONNECTED) {  //Debugging for wifi
     Serial.print(".");
@@ -40,11 +35,8 @@ void setup() {
   server.begin();
   Serial.println("Server started");
 
-  SPI.begin();                        // Init SPI bus
-  mfrc522.PCD_Init();                 // Init MFRC522
-  //mfrc522.PCD_DumpVersionToSerial();  // Show details of PCD - MFRC522 Card Reader details
-  //Serial.println(F("Scan PICC to see UID, SAK, type, and data blocks..."));
-  
+  SPI.begin();         // Init SPI bus
+  mfrc522.PCD_Init();  // Init MFRC522
 }
 
 void loop() {
@@ -59,34 +51,32 @@ void loop() {
         char c = client.read();
         if (c == '\r' || c == '\n') {
           if (lineStarted) {
-            //buffer[pos] = '\0';  // Add terminator
-            Serial.println(buffer);  // Debugging for received message
+            buffer[pos] = '\0';      // Add terminator
+            //Serial.println(buffer);  // Debugging for received message
 
-            // Converts string to an integer
-            int value = atoi(buffer);
-            
             // Reset the loop if no new card present on the sensor/reader. This saves the entire process when idle.
             if (!mfrc522.PICC_IsNewCardPresent()) {
-               break;
+              client.println("Ack");
+              break;
             }
 
             // Select one of the cards
             if (!mfrc522.PICC_ReadCardSerial()) {
-               break;
+              client.println("Ack");
+              break;
             }
-            //Check if the UID matches allowedUID
-            if (mfrc522.uid.size == 4 && memcmp(allowedUID, mfrc522.uid.uidByte, 4) == 0) {
-              client.println("Toegang : 1");
-              Serial.println("Toegang : 1");
-            } else {
-              client.println("Toegang : 0");
-              Serial.println("Toegang : 0");
+            char buffer2[1000];
+            char buffer3[1000];
+            for (int i = 0; i < 4; i++) {
+              sprintf(buffer2 + (i * 2), "%02X", mfrc522.uid.uidByte[i]);
+              sprintf(buffer3, "Toegang : %s", buffer2);
             }
+            client.println(buffer3);
+            Serial.println(buffer3);
           }
         } else {
           lineStarted = true;
           buffer[pos++] = c;
-          // Check if bufferoverflow
           if (pos >= 99) {
             break;
           }
@@ -94,6 +84,5 @@ void loop() {
       }
     }
     Serial.println("Client disconnected");
-    delay(100);
   }
 }
