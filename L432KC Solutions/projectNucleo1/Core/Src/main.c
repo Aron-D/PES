@@ -71,8 +71,8 @@ char co2Buf[50];
 float temp = 73;
 float humidity = 24;
 float moisture = 25;
-uint8_t CO2 = 26;
-uint8_t TVOC = 27;
+uint16_t CO2 = 26;
+uint16_t TVOC = 27;
 
 /* USER CODE END PV */
 
@@ -143,11 +143,13 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+
   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
   HAL_I2C_Slave_Receive_IT(&hi2c1, &received_command, 1);
 
   //initialisatie van de co2 sensor
   HAL_I2C_Master_Transmit(&hi2c3, 0x58 << 1, (uint8_t[]) {0x20, 0x03}, 2, HAL_MAX_DELAY);
+  HAL_Delay(10);
 
   while (1)
   {
@@ -155,6 +157,7 @@ int main(void)
 	  /*
 	   * Readout temperature and humidity using library functions and store them in corresponding buffers
 	   */
+
 	  sht3x_read_temperature_and_humidity(&handle, &temp, &humidity);
 	  sprintf(temperatureBuf, "%.1lf", temp);
 	  sprintf(humidityBuf, "%.1lf", humidity);
@@ -175,7 +178,7 @@ int main(void)
 		uint8_t command[] = {0x20, 0x08}; // Command for reading measurement data
 		HAL_I2C_Master_Transmit(&hi2c3, 0x58 << 1, command, sizeof(command), HAL_MAX_DELAY);
 		// Wait for measurement to complete
-		HAL_Delay(1);
+		HAL_Delay(12);
 		// Read measurement data
 		HAL_I2C_Master_Receive(&hi2c3, (0x58 << 1) | 0x01, data, sizeof(data), HAL_MAX_DELAY);
 		// Process data to get CO2 and TVOC
@@ -183,7 +186,13 @@ int main(void)
 		TVOC = (data[3] << 8) | data[4];        // Print data to Serial port (UART)
 		//sprintf(buf, "CO2: %d TVOC: %d \r\n", CO2, TVOC);
 		//HAL_UART_Transmit(&huart2, (uint8_t*)buf, strlen(buf), HAL_MAX_DELAY);
-		sprintf(co2Buf, "%d", CO2);
+		if(CO2 < 1000){
+			sprintf(co2Buf, "0%d", CO2);
+		}
+		else {
+			sprintf(co2Buf, "%d", CO2);
+		}
+		//sprintf(co2BufFormatted, "%0d", co2Buf)
 
     /* USER CODE END WHILE */
 

@@ -2411,3 +2411,1646 @@ Finished building: default.size.stdout
  
 Finished building: projectNucleo1.list
  
+16:33:21 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  146 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:502:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  502 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:504:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  504 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:528:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  528 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:530:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  530 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:536:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  536 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:538:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  538 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:544:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  544 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:546:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  546 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+18:06:31 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:146:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  146 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+18:09:00 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  149 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+18:10:55 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:149:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  149 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+18:12:50 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  147 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+19:58:16 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  147 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:178:60: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  178 |                 HAL_I2C_Master_Transmit(&hi2c3, 0x58 << 1, command, sizeof(command), HAL_MAX_DELAY);
+      |                                                            ^~~~~~~
+      |                                                            |
+      |                                                            uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:626:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  626 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData,
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/main.c:182:68: warning: passing argument 3 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  182 |                 HAL_I2C_Master_Receive(&hi2c3, (0x58 << 1) | 0x01, data, sizeof(data), HAL_MAX_DELAY);
+      |                                                                    ^~~~
+      |                                                                    |
+      |                                                                    uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:628:97: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  628 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData,
+      |                                                                                        ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44728	    492	   2524	  47744	   ba80	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+19:59:56 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  147 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:182:68: warning: passing argument 3 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+  182 |                 HAL_I2C_Master_Receive(&hi2c3, (0x58 << 1) | 0x01, data, sizeof(data), HAL_MAX_DELAY);
+      |                                                                    ^~~~
+      |                                                                    |
+      |                                                                    uint16_t * {aka short unsigned int *}
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:628:97: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint16_t *' {aka 'short unsigned int *'}
+  628 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData,
+      |                                                                                        ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+20:00:38 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  147 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:504:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  504 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:506:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  506 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:530:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  530 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:532:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  532 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+20:33:10 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:147:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  147 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:505:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  505 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:507:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  507 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:531:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  531 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:533:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  533 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:539:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  539 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:541:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  541 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:547:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  547 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:549:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  549 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44720	    492	   2524	  47736	   ba78	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+21:04:19 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  148 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:507:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  507 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:509:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  509 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:533:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  533 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:535:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  535 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:541:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  541 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:543:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  543 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:549:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  549 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:551:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  551 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44736	    492	   2524	  47752	   ba88	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+21:08:06 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  148 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:204:1: error: expected identifier or '(' before '}' token
+  204 | }
+      | ^
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:513:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  513 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:515:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  515 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:539:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  539 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:541:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  541 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:547:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  547 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:549:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  549 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:555:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  555 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:557:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  557 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j12 all" terminated with exit code 2. Build might be incomplete.
+21:08:29 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  148 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:512:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  512 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:514:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  514 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:554:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  554 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:556:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  556 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44760	    492	   2524	  47776	   baa0	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
+21:11:26 **** Incremental Build of configuration Debug for project projectNucleo1 ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32L432xx -c -I../Core/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc -I../Drivers/STM32L4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32L4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:148:30: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  148 |   HAL_UART_Transmit(&huart2, " - Nucleo 1 online - \n\r", 23, HAL_MAX_DELAY);
+      |                              ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                              |
+      |                              char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'HAL_I2C_SlaveRxCpltCallback':
+../Core/Src/main.c:512:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  512 |                 HAL_UART_Transmit(&huart2, temperatureBuf, strlen(temperatureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:514:51: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  514 |             if (HAL_I2C_Slave_Transmit_IT(&hi2c1, temperatureBuf, strlen(temperatureBuf)) != HAL_OK) {
+      |                                                   ^~~~~~~~~~~~~~
+      |                                                   |
+      |                                                   char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:538:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  538 |                 HAL_UART_Transmit(&huart2, humidityBuf, strlen(humidityBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:540:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  540 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, humidityBuf, strlen(humidityBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:546:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  546 |                 HAL_UART_Transmit(&huart2, co2Buf, strlen(co2Buf), HAL_MAX_DELAY);
+      |                                            ^~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:548:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  548 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, co2Buf, strlen(co2Buf)) != HAL_OK) {
+      |                                                       ^~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+../Core/Src/main.c:554:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
+  554 |                 HAL_UART_Transmit(&huart2, moistureBuf, strlen(moistureBuf), HAL_MAX_DELAY);
+      |                                            ^~~~~~~~~~~
+      |                                            |
+      |                                            char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:450,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_uart.h:1697:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
+ 1697 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                ~~~~~~~~~~~~~~~^~~~~
+../Core/Src/main.c:556:55: warning: pointer targets in passing argument 2 of 'HAL_I2C_Slave_Transmit_IT' differ in signedness [-Wpointer-sign]
+  556 |                 if (HAL_I2C_Slave_Transmit_IT(&hi2c1, moistureBuf, strlen(moistureBuf)) != HAL_OK) {
+      |                                                       ^~~~~~~~~~~
+      |                                                       |
+      |                                                       char *
+In file included from ../Core/Inc/stm32l4xx_hal_conf.h:342,
+                 from ../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal.h:29,
+                 from ../Core/Inc/main.h:30,
+                 from ../Core/Src/main.c:20:
+../Drivers/STM32L4xx_HAL_Driver/Inc/stm32l4xx_hal_i2c.h:646:79: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'char *'
+  646 | HAL_StatusTypeDef HAL_I2C_Slave_Transmit_IT(I2C_HandleTypeDef *hi2c, uint8_t *pData, uint16_t Size);
+      |                                                                      ~~~~~~~~~^~~~~
+arm-none-eabi-gcc -o "projectNucleo1.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\boeri\OneDrive - De Haagse Hogeschool\NSE\Jaar 2\Embedded Systems\PES\Deel 2\PES\L432KC Solutions\projectNucleo1\STM32L432KCUX_FLASH.ld" --specs=nosys.specs -Wl,-Map="projectNucleo1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: projectNucleo1.elf
+ 
+arm-none-eabi-size  projectNucleo1.elf 
+arm-none-eabi-objdump -h -S projectNucleo1.elf  > "projectNucleo1.list"
+   text	   data	    bss	    dec	    hex	filename
+  44760	    492	   2524	  47776	   baa0	projectNucleo1.elf
+Finished building: default.size.stdout
+ 
+Finished building: projectNucleo1.list
+ 
