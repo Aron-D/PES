@@ -44,11 +44,11 @@ void setup() {
   myDisplay.begin();
   myDisplay.setIntensity(15);  // Set brightness (0-15)
   myDisplay.displayClear();
-  myDisplay.displayScroll(buffer, PA_CENTER, PA_SCROLL_LEFT, 50);
+  myDisplay.displayScroll(buffer, PA_CENTER, PA_SCROLL_LEFT, 50); // Display speed and direction
 }
 
 void loop() {
-   if (myDisplay.displayAnimate()) {
+   if (myDisplay.displayAnimate()) {    // Display funtion that resets after it has displayed
       myDisplay.displayReset();
     }
   WiFiClient client = server.available();  // Instance of WifiClient to check if the server is available
@@ -68,7 +68,7 @@ void loop() {
 
             // Animate the display
           }
-        } else {
+        } else {  // filling the buffer
           lineStarted = true;
           buffer[pos++] = c;
           // Check if bufferoverflow
