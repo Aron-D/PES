@@ -7,7 +7,7 @@ Dit project is gericht op het **Automatiseren van het appartement**.
 ## Export (.zip) Latest Project :card_index_dividers:
 - [PES Domotica](https://github.com/Aron-D/PES/archive/refs/heads/main.zip)
 
-## Higlights
+## Highlights
 - **I2C_code+RPI_Server** - ...
 - **L432KC Solutions** - De configuratie en initialisatie van STM32CubeIDE.
 - **Final code in C** - Implementatie van socket verbinding code in C programmataal, Later in C++ OOP.
@@ -38,4 +38,4 @@ Ieder Wemos board bestuurt een sensor en combineert de sensor code samen met de 
 - De [Lichtkrant + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/LichtkrantWiFi.ino), test de LED matrix of sensorwaardes gedisplayed kunnen worden.
 - De [RFID-Scanner testcode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/RFIDscanner.ino), Test of RFID-Scanner een kaart of blauwe chip kan inlezen via de MFRC522 + SPI library.
 - De [RFID-Scanner code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiRFIDscanner.ino), Scan van kaart of blauwe chip kan worden doorgestuurd via socketverbinding met de WirelessPi.
-- De [Deur Servo code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiServo.ino), Deur wordt gerepresenteerd als een servomotor. Als de RFID-Scan heeft plaatsgevonden wordt er via de socketverbinding een signaal gestuurd met een respons, dat uiteindelijk het servomotor aan laat gaan.
+- De [Deur Servo code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiServo.ino), Deur wordt gerepresenteerd als een servomotor. Als de RFID-Scan heeft plaatsgevonden wordt er via de socketverbinding een signaal verstuurd met een respons, dat uiteindelijk het servomotor aan laat gaan.
