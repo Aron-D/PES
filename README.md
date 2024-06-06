@@ -33,9 +33,9 @@ Ieder Wemos board bestuurt een sensor en combineert de sensor code samen met de 
 - De [Speciaalbeheerder + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Speciaalbeheerder/Speciaalbeheerder.ino), een I2C  oled display + U8G2_SSD1306_128X64 library + potentiometer.
 - De [Bewegingssensor Testcode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/BewegingsSensorCode.ino), test of er beweging wordt herkent op de HC-S501 sensor.
 - De [Bewegingssensor code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Bewegingscode.ino), Leest data van bewegingssensor op en stuurt dit door via socketverbinding.
-- De [Ledstrip testCode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WerkendeLedstripCode.ino), test of ledstrip op de juiste wijze functioneert.
+- De [Ledstrip testCode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WerkendeLedstripCode.ino), test of ledstrip (model: WS2812B) op de juiste wijze functioneert met de Adafruit_NeoPixel library.
 - De [Ledstrip Code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Ledstripcode.ino), functioneert op basis van bewegingssensor data en zet ledstrip aan wanneer er beweging gedetecteert is.
-- De [Lichtkrant + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/LichtkrantWiFi.ino)
-- De [RFID-Scanner testcode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/RFIDscanner.ino), Test of RFID-Scanner een kaart of blauwe chip kan inlezen.
+- De [Lichtkrant + Socket Connectie (ANDERE LINK NODIG)](https://github.com/Aron-D/PES/blob/main/socket%20wemos/LichtkrantWiFi.ino), test de LED matrix of sensorwaardes gedisplayed kunnen worden.
+- De [RFID-Scanner testcode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/RFIDscanner.ino), Test of RFID-Scanner een kaart of blauwe chip kan inlezen via de MFRC522 + SPI library.
 - De [RFID-Scanner code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiRFIDscanner.ino), Scan van kaart of blauwe chip kan worden doorgestuurd via socketverbinding met de WirelessPi.
 - De [Deur Servo code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiServo.ino), Deur wordt gerepresenteerd als een servomotor. Als de RFID-Scan heeft plaatsgevonden wordt er via de socketverbinding een signaal gestuurd met een respons, dat uiteindelijk het servomotor aan laat gaan.
