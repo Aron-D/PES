@@ -5,7 +5,7 @@ Het doel van dit project is om een multifunctioneel gebouw bestaande uit 6 verdi
 Dit project is gericht op het **Automatiseren van het appartement**.
 
 ## Export (.zip) Latest Project :card_index_dividers:
-- 
+- [PES Domotica](https://github.com/Aron-D/PES/archive/refs/heads/main.zip)
 
 ## Higlights
 - **I2C_code+RPI_Server** - ...
