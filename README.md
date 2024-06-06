@@ -20,7 +20,7 @@ De I2C Communicatie vindt plaats tussen de connectie van het Bedrade Raspberry P
 - De [WirelessPi (Client) code](https://github.com/Aron-D/PES/blob/main/socket%20raspberry%20pi/picode_29_5_2024/client.c)
 
 ## Socket Wemos
-Ieder Wemos board bestuurt een sensoren en combineert de sensor code samen met de Socket code om dit verder door te sturen naar de Client Socket van de raspberry pi (WirelessPi).
+Ieder Wemos board bestuurt een sensor en combineert de sensor code samen met de Socket code om dit verder door te sturen naar de Client Socket van de raspberry pi (WirelessPi).
 
 ### Demo Code
 - De [Button Testcode + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/ButtonCode.ino), test of button signaal wordt doorverwezen via socket verbinding met de WirelessPi.
