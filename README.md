@@ -13,7 +13,7 @@ Dit project is gericht op het **Automatiseren van het appartement**.
 - **Final code in C** - Implementatie van socket verbinding code in C programmataal, Later in C++ OOP.
 - **Socket Wemos** - De Socket code van de LOLIN D1 Mini board A.K.A. Wemos. De Wemos functioneert als de server socket.
 > [!IMPORTANT]
-> De **Socket Wemos** library kan niet OOP geimplementeerd worden en zal dus in de C programma-taal blijven.
+> De **Socket Wemos** library kan niet OOP geimplementeerd worden en zal dus in de Arduino IDE(advanced C programma-taal) blijven.
 
 ## I2C_Code +RPI_Server
 De I2C Communicatie vindt plaats tussen de connectie van het Bedrade Raspberry Pi (Server Socket) en het Draadloze Raspberry Pi (Client Socket). Hier wordt het BedradePi gezien als de Server, waar ook het lokale hotspot wordt opgesteld voor de socketverbinding.
