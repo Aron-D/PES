@@ -9,7 +9,7 @@ Dit project is gericht op het **Automatiseren van het appartement**.
 
 ## Highlights
 - **I2C_code+RPI_Server** - ...
-- **L432KC Solutions** - De configuratie en initialisatie van STM32CubeIDE.
+- **L432KC Solutions** - De configuratie en code voor de embedded microcontrollers.
 - **Final code in C** - Implementatie van socket verbinding code in C programmataal, Later in C++ OOP.
 - **Socket Wemos** - De Socket code van de LOLIN D1 Mini board A.K.A. Wemos. De Wemos functioneert als de server socket.
 > [!IMPORTANT]
