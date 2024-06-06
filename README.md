@@ -14,6 +14,10 @@ Dit project is gericht op het **Automatiseren van het appartement**.
 - **Socket Wemos** - De Socket code van de LOLIN D1 Mini board A.K.A. Wemos. De Wemos functioneert als de server socket.
 
 ## I2C_Code +RPI_Server
+De I2C Communicatie vindt plaats tussen de connectie van het Bedrade Raspberry Pi (Server Socket) en het Draadloze Raspberry Pi (Client Socket). Hier wordt het BedradePi gezien als de Server, waar ook het lokale hotspot wordt opgesteld voor de socketverbinding.
+
+- De [BedradePi (Server) code](https://github.com/Aron-D/PES/blob/main/socket%20raspberry%20pi/picode_29_5_2024/serverV2.c)
+- De [WirelessPi (Client) code](https://github.com/Aron-D/PES/blob/main/socket%20raspberry%20pi/picode_29_5_2024/client.c)
 
 ## Socket Wemos
 Ieder Wemos board bestuurt een sensoren en combineert de sensor code samen met de Socket code om dit verder door te sturen naar de Client Socket van de raspberry pi (WirelessPi).
@@ -26,6 +30,10 @@ Ieder Wemos board bestuurt een sensoren en combineert de sensor code samen met d
 ### Sprint Code
 - De [Speciaalbeheerder + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Speciaalbeheerder/Speciaalbeheerder.ino), een I2C  oled display + U8G2_SSD1306_128X64 library + potentiometer.
 - De [Bewegingssensor Testcode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/BewegingsSensorCode.ino), test of er beweging wordt herkent op de HC-S501 sensor.
-- De [Bewegingssensor code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Bewegingscode.ino)
-- De [Ledstrip testCode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WerkendeLedstripCode.ino)
-- De [Ledstrip Code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Ledstripcode.ino)
+- De [Bewegingssensor code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Bewegingscode.ino), Leest data van bewegingssensor op en stuurt dit door via socketverbinding.
+- De [Ledstrip testCode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WerkendeLedstripCode.ino), test of ledstrip op de juiste wijze functioneert.
+- De [Ledstrip Code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/Ledstripcode.ino), functioneert op basis van bewegingssensor data en zet ledstrip aan wanneer er beweging gedetecteert is.
+- De [Lichtkrant + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/LichtkrantWiFi.ino)
+- De [RFID-Scanner testcode](https://github.com/Aron-D/PES/blob/main/socket%20wemos/RFIDscanner.ino), Test of RFID-Scanner een kaart of blauwe chip kan inlezen.
+- De [RFID-Scanner code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiRFIDscanner.ino), Scan van kaart of blauwe chip kan worden doorgestuurd via socketverbinding met de WirelessPi.
+- De [Deur Servo code + Socket Connectie](https://github.com/Aron-D/PES/blob/main/socket%20wemos/WifiServo.ino), Deur wordt gerepresenteerd als een servomotor. Als de RFID-Scan heeft plaatsgevonden wordt er via de socketverbinding een signaal gestuurd met een respons, dat uiteindelijk het servomotor aan laat gaan.
