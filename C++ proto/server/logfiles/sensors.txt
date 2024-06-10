@@ -1,0 +1,8 @@
+draadlozeKnop : 0.00
+bedradeKnop : 1.00
+Temperatuur : 25.20
+Luchtvochtigheid : 65.50
+bedradeBewegingsSensor : 0.00
+bedradeDrukSensor : 0.00
+co2Sensor : 400.00
+grondgevoeligeSensor : 2869.00

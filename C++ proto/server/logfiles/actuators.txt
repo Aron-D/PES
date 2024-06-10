@@ -1,0 +1,2 @@
+bedradeLed : 0.00
+bedradeLedstrip : 1.00
