@@ -12,11 +12,11 @@ const int serverPort = 8080;
 U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/U8X8_PIN_NONE, /* clock=*/D2, /* data=*/D3);
 
 WiFiServer server(serverPort);
-char buffer[200];           // Buffer om ontvangen data op te slaan
+char buffer[300];           // Buffer om ontvangen data op te slaan
 bool dataReceived = false;  // Vlag om aan te geven dat data is ontvangen
 
 // Strings om de waarden op te slaan
-String values[5] = { "", "", "", "", "" };  // Initiële waarden zijn leeg
+String values[6] = { "", "", "", "", "", "" };  // Initiële waarden zijn leeg
 
 void setup() {
   Serial.begin(115200);
@@ -61,9 +61,9 @@ void loop() {
             // Process the buffer and extract key-value pairs
             char* token = strtok(buffer, ",");
             int index = 0;
-            while (token != NULL && index < 5) {
-              char key[50];
-              char val[50];
+            while (token != NULL && index < 6) {
+              char key[100];
+              char val[100];
               sscanf(token, "%49[^:]: %49s", key, val);  // Use correct format specifier
               values[index] = val;
               token = strtok(NULL, ",");
@@ -104,16 +104,17 @@ void updateDisplay() {
   int offset = 0;
 
   if (analogValue >= 900) {
-    hoverY = 3 * 16;  // Positie 5
+    hoverY = 4 * 16;  // Positie 6
     offset = 1;
   } else if (analogValue >= 800 && analogValue < 900) {
-    hoverY = 3 * 16;  // Positie 4
+    hoverY = 3 * 16;  // Positie 5
+    offset = 1;
   } else if (analogValue >= 700 && analogValue < 800) {
-    hoverY = 2 * 16;  // Positie 3
+    hoverY = 2 * 16;  // Positie 4
   } else if (analogValue >= 600 && analogValue < 700) {
-    hoverY = 1 * 16;  // Positie 2
+    hoverY = 1 * 16;  // Positie 3
   } else if (analogValue >= 500 && analogValue < 600) {
-    hoverY = 0;  // Positie 1
+    hoverY = 0;  // Positie 2
   }
 
   // Hoverbalk tekenen
@@ -143,20 +144,27 @@ void updateDisplay() {
     u8g2.print(values[3]);  // Toon de waarde van Laatst poging deur
   } else {
     u8g2.setCursor(5, 12);  // Zet de cursor positie voor de tweede tekst
-    u8g2.print("Hum: ");
-    u8g2.print(values[1]);  // Toon de waarde van Luchtvocht
+    u8g2.print("CO2: ");
+    u8g2.print(values[2]);  // Toon de waarde van Luchtvocht
 
     u8g2.setCursor(5, 28);  // Zet de cursor positie voor de derde tekst
-    u8g2.print("CO2: ");
-    u8g2.print(values[2]);  // Toon de waarde van CO2
+    u8g2.print("RFID: ");
+    u8g2.print(values[3]);  // Toon de waarde van CO2
 
     u8g2.setCursor(5, 44);  // Zet de cursor positie voor de vierde tekst
-    u8g2.print("RFID: ");
-    u8g2.print(values[3]);  // Toon de waarde van Laatst poging deur
+    u8g2.print("Bedtijd: ");
+    u8g2.print(values[4]);  // Toon de waarde van Laatst poging deur
 
     u8g2.setCursor(5, 60);  // Zet de cursor positie voor de vijfde tekst
-    u8g2.print("Bedtijd: ");
-    u8g2.print(values[4]);  // Toon de waarde van Tijd in bed
+    u8g2.print("Bed is: ");
+    // if(values[5] == "1"){
+    // u8g2.print("droog");  // Toon de waarde van Tijd in bed
+    // } else {
+    u8g2.print(values[5]);
+    // }
+    // u8g2.setCursor(5, 76);  // Zet de cursor positie voor de zesde tekst
+    // u8g2.print("Nat: ");
+    // u8g2.print(values[5]);  // Toon de waarde van Nat
   }
 
   u8g2.sendBuffer();  // Transfer internal memory to the display
